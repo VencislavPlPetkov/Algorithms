@@ -31,6 +31,8 @@ public class BubbleSort {
 		printArray(nums);
 
 		for (int i = 0; i < nums.length - 1; i++) {
+			// (nums.length - i - 1) is for ignoring comparisons of elements which have already been compared in earlier iterations
+			
 			for (int j = 0; j < nums.length - i - 1; j++) {
 				if (nums[j] > nums[j + 1]) {
 					int temp = nums[j];

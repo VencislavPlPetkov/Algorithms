@@ -11,9 +11,9 @@ package elementarySorts;
  * 
  * Because it only uses
  * comparisons to operate on elements, it is a comparison sort. Bubble sort has
- * worst-case and average complexity both Î(n2), where n is the number of items
+ * worst-case and average complexity both Ã(n2), where n is the number of items
  * being sorted. There exist many sorting algorithms with substantially better
- * worst-case or average complexity of O(n log n). Even other Î(n2) sorting
+ * worst-case or average complexity of O(n log n). Even other Ã(n2) sorting
  * algorithms, such as insertion sort, tend to have better performance than
  * bubble sort. Therefore, bubble sort is not a practical sorting algorithm when
  * n is large.Performance of bubble sort over an already-sorted list (best-case)
@@ -23,39 +23,33 @@ package elementarySorts;
 
 public class BubbleSort {
 
-	public static void bubble_srt(int array[]) {
-		int n = array.length;
-		int k;
-		for (int m = n; m >= 0; m--) {
-			for (int i = 0; i < n - 1; i++) {
-				k = i + 1;
-				if (array[i] > array[k]) {
-					swapNumbers(i, k, array);
+	public static void main(String[] args) {
+
+		int[] nums = { 11, 2, 9, 8, 3, 1 };
+
+		System.out.print("Initial: ");
+		printArray(nums);
+
+		for (int i = 0; i < nums.length - 1; i++) {
+			for (int j = 0; j < nums.length - i - 1; j++) {
+				if (nums[j] > nums[j + 1]) {
+					int temp = nums[j];
+					nums[j] = nums[j + 1];
+					nums[j + 1] = temp;
 				}
 			}
-			printNumbers(array);
 		}
-	}
 
-	private static void swapNumbers(int i, int j, int[] array) {
+		
+		System.out.print("Sorted: ");
+		printArray(nums);
 
-		int temp;
-		temp = array[i];
-		array[i] = array[j];
-		array[j] = temp;
-	}
+	}// END Main
 
-	private static void printNumbers(int[] input) {
-
-		for (int i = 0; i < input.length; i++) {
-			System.out.print(input[i] + ", ");
+	private static void printArray(int[] nums) {
+		for (int i = 0; i < nums.length; i++) {
+			System.out.print(nums[i] + " ");
 		}
-		System.out.println("\n");
+		System.out.println();
 	}
-
-	public static void main(String[] args) {
-		int[] input = { 4, 2, 9, 6, 23, 12, 34, 0, 1 };
-		bubble_srt(input);
-
-	}
-}
+}// END Class
